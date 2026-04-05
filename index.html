@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub de Tests de Personalidad</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <div id="start-screen" class="screen active">
+      <h1>Central de Análisis</h1>
+      <p>Descubre aspectos ocultos de tu personalidad. Elige tu prueba, configura tus parámetros y comienza la evaluación.</p>
+      
+      <div class="settings-container">
+        <label for="user-name">¿Cuál es tu nombre?</label>
+        <input type="text" id="user-name" class="input-field" placeholder="Ej. Alex..." autocomplete="off">
+
+        <label for="test-selector" style="margin-top: 15px;">Selecciona el Test:</label>
+        <select id="test-selector" class="input-field">
+          <option value="moral" selected>Test de Moralidad</option>
+          <option value="therian">¿Qué tan therian eres?</option>
+          <option value="gay">¿Qué tan gay eres?</option>
+          <option value="personality">Test de Introversión/Extroversión</option>
+        </select>
+
+        <label for="question-count" style="margin-top: 15px;">Cantidad de Preguntas:</label>
+        <select id="question-count" class="input-field">
+          <option value="3">3 Preguntas</option>
+          <option value="5" selected>5 Preguntas</option>
+          <option value="7">7 Preguntas</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button id="start-btn" class="primary-btn">Iniciar Test</button>
+        <button id="glossary-btn" class="secondary-btn">Ver Tabla de Resultados</button>
+      </div>
+    </div>
+
+    <div id="glossary-screen" class="screen">
+      <h1 id="glossary-title">Significados del Test</h1>
+      <p>Aquí puedes ver lo que significa cada posible resultado antes de jugar.</p>
+      
+      <div class="table-container">
+        <table id="glossary-table">
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Resultado / Corriente</th>
+              <th>Significado</th>
+            </tr>
+          </thead>
+          <tbody id="glossary-body">
+            </tbody>
+        </table>
+      </div>
+
+      <button id="back-to-start-btn" class="secondary-btn" style="margin-top: 20px; width: 100%;">Volver al Menú</button>
+    </div>
+
+    <div id="quiz-screen" class="screen">
+      <div class="progress-container">
+        <div class="progress-text" id="progress-text">Pregunta 1 de X</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+      
+      <div class="question-container">
+        <h2 id="question-text">El texto de la pregunta aparecerá aquí...</h2>
+      </div>
+
+      <div class="options-container" id="options-container">
+        </div>
+    </div>
+
+    <div id="result-screen" class="screen">
+      <h1 id="result-greeting">Resultados</h1>
+      <h2 id="result-title" class="highlight">Categoría</h2>
+      <p id="result-description">La descripción aparecerá aquí.</p>
+      
+      <div class="chart-container">
+        <canvas id="result-chart"></canvas>
+      </div>
+
+      <button id="restart-btn" class="primary-btn">Volver a intentar</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
